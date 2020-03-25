@@ -1,0 +1,25 @@
+.sidebar-container {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+}
+
+.sidebar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  padding: 5px;
+  background: rgba(255, 0, 0, 0.5);
+  font-size: 12px;
+
+  .list-group-item {
+    padding: .75rem;
+  }
+}
+
+.sidebar-content-container {
+  padding: 5px;
+}

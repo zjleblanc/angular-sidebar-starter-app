@@ -1,0 +1,15 @@
+<p>Home Page</p>
+<button
+  *ngIf="!isLoggedIn"
+  type="button"
+  class="btn btn-primary"
+  (click)="onLogin()">
+  Log In
+</button>
+<button
+  *ngIf="isLoggedIn"
+  type="button"
+  class="btn btn-primary"
+  (click)="onLogout()">
+  Log Out
+</button>

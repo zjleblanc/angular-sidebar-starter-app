@@ -1,0 +1,6 @@
+<ol class="breadcrumb">
+  <li class="breadcrumb-item" *ngFor="let route of routes" [ngClass]="{'active' : route.active}">
+    <a *ngIf="!route.active" routerLink="{{route.path}}">{{route.displayName}}</a>
+    <span *ngIf="route.active">{{route.displayName}}</span>
+  </li>
+</ol>

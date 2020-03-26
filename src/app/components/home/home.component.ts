@@ -12,12 +12,13 @@ export class HomeComponent implements OnInit {
 
   constructor(private authService: AuthService) {
     this.isLoggedIn = authService.checkIfLoggedIn();
-    this.authService.onAuthChange.subscribe((isLoggedIn) => {
-      this.isLoggedIn = isLoggedIn;
-    });
   }
 
   ngOnInit(): void {
+    this.authService.onAuthChange.subscribe((isLoggedIn) => {
+      this.isLoggedIn = isLoggedIn;
+      console.log(this.isLoggedIn);
+    });
   }
 
   onLogin(): void {

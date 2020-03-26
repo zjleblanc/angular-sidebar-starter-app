@@ -13,11 +13,13 @@ export class AuthService {
   private user: IUser;
 
   constructor(private router: Router) {
-    this.loggedIn = false;
+    var authStatus = JSON.parse(sessionStorage.getItem("authStatus"));
+    this.loggedIn = authStatus == null ? false : authStatus;
   }
 
   login(): void {
     this.loggedIn = true;
+    sessionStorage.setItem("authStatus", "true");
 
     this.user = {
       name: "Demo User",
@@ -31,8 +33,9 @@ export class AuthService {
   logout(): void {
     this.user = undefined;
     this.loggedIn = false;
-    this.router.navigate(['home']);
+    sessionStorage.setItem("authStatus", "false");
     this.onAuthChange.emit(false)
+    this.router.navigate(['home']);
   }
 
   checkIfLoggedIn(): boolean {

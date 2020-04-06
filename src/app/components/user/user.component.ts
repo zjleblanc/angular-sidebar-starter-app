@@ -1,3 +1,5 @@
+import { UserService } from './../../services/user.service';
+import { IUser } from './../../resources/user.resources';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
@@ -7,14 +9,14 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./user.component.scss']
 })
 export class UserComponent implements OnInit {
-  id: number;
+  user: IUser;
   private sub: any;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private userService: UserService) { }
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
-       this.id = +params['id'];
+       this.user = this.userService.getUser(+params['id']);
     });
   }
 

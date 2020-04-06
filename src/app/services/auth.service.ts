@@ -22,6 +22,7 @@ export class AuthService {
     sessionStorage.setItem("authStatus", "true");
 
     this.user = {
+      id: 0,
       name: "Demo User",
       lastLogin: new Date()
     }

@@ -1,3 +1,5 @@
+import { IUser } from './../../resources/user.resources';
+import { UserService } from './../../services/user.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  users: IUser[];
 
-  ngOnInit() {
+  constructor(private userService: UserService) {
+    this.userService.getUsers().subscribe((users: IUser[]) => {
+      this.users = users;
+    }, error => this.users = [])
   }
+
+  ngOnInit() { }
 
 }

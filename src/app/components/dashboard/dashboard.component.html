@@ -1,8 +1,8 @@
 <div class="container-fluid dashboard">
   <h1>Welcome to Dashboard!</h1>
   <ul class="list-group">
-    <li class="list-group-item"><a [routerLink]="['/user', 1]">User 1</a></li>
-    <li class="list-group-item"><a [routerLink]="['/user', 2]">User 2</a></li>
-    <li class="list-group-item"><a [routerLink]="['/user', 3]">User 3</a></li>
+    <li class="list-group-item" *ngFor="let user of users">
+      <a [routerLink]="['/user', user.id]">{{user.name}}</a>
+    </li>
   </ul>
 </div>
